@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mission Famille</title><meta name="robots" content="noindex">
+<style>
+@font-face{font-family:Bangers;src:url(bangers.ttf)}@font-face{font-family:Fredoka;src:url(fredoka_bold.ttf)}
+*{box-sizing:border-box;margin:0}
+body{font-family:Fredoka,sans-serif;color:#1b1b3a;background:#ffd23f radial-gradient(#f4b400 22%,transparent 23%) 0 0/16px 16px;min-height:100vh;padding:28px 20px;text-align:center}
+h1{font-family:Bangers;font-size:54px;letter-spacing:2px;color:#fff;-webkit-text-stroke:2px #1b1b3a;text-shadow:5px 5px 0 #1b1b3a;line-height:1}
+.carte{background:#fff;border:4px solid #1b1b3a;border-radius:20px;box-shadow:5px 5px 0 #1b1b3a;padding:18px;margin:22px auto;max-width:420px}
+.btn{display:block;background:#16c2b4;color:#fff;text-decoration:none;font-family:Bangers;font-size:30px;letter-spacing:1px;border:4px solid #1b1b3a;border-radius:20px;box-shadow:5px 5px 0 #1b1b3a;padding:14px;margin:16px auto;max-width:420px;-webkit-text-stroke:1px #1b1b3a}
+.btn.jaune{background:#fff;color:#1b1b3a;-webkit-text-stroke:0}
+ol{text-align:left;padding-left:22px;line-height:1.5}
+small{display:block;margin-top:12px;font-size:13px}
+#invit{display:none}
+</style></head><body>
+<h1>MISSION<br>FAMILLE</h1>
+<p style="margin-top:12px;font-size:17px">L'appli qui garde la famille connectée 🛡️</p>
+<div id="invit">
+  <a class="btn" id="ouvrir" href="#">🔓 OUVRIR MON INVITATION</a>
+  <small>(si l'appli est déjà installée)</small>
+</div>
+<a class="btn jaune" href="mission-famille.apk" download>📥 TÉLÉCHARGER L'APPLI (ANDROID)</a>
+<div class="carte">
+<ol>
+<li>Appuie sur « Télécharger l'appli ».</li>
+<li>Ouvre le fichier téléchargé. Si Android le demande, autorise l'installation depuis Chrome.</li>
+<li>Reviens sur cette page et appuie sur « Ouvrir mon invitation », ou dans l'appli sur « Coller le lien ».</li>
+</ol>
+<small>L'appli ne sert qu'avec une invitation acceptée par un parent. Elle ne lit ni messages, ni photos, ni appels.</small>
+</div>
+<script>
+var t=(new URLSearchParams(location.search).get('t')||'').toLowerCase();
+if(/^[0-9a-f]{48}$/.test(t)){
+  document.getElementById('invit').style.display='block';
+  document.getElementById('ouvrir').href='intent://invite?t='+t+'#Intent;scheme=missionfamille;package=fr.missionfamille;end';
+}
+</script>
+</body></html>
